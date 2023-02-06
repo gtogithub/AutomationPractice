@@ -71,4 +71,26 @@ public class UltimateQATest extends PageSetup {
 
     }
 
+    @Test
+    public void myTest_1() {
+        WebElement xpathButton1 = driver.findElement(By.xpath("//div[@class='et_pb_module et_pb_blurb et_pb_blurb_11  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light']//button"));
+        xpathButton1.click();
+
+        WebElement buttonSuccessText = driver.findElement(By.className("entry-title"));
+        Assertions.assertEquals("Button success", buttonSuccessText.getText());
+    }
+
+    @Test
+    public void myTest_2() throws InterruptedException {
+        WebElement goToLoginPagebutton = driver.findElement(By.xpath("//a[text()='Go to login page']"));
+        goToLoginPagebutton.click();
+
+        WebElement loginPageText = driver.findElement(By.className("page__heading"));
+        Assertions.assertEquals("Welcome Back!", loginPageText.getText());
+
+        WebElement forgotPasswordLink = driver.findElement(By.xpath("//div[@class='form__group form__remember-me']/a"));
+        forgotPasswordLink.click();
+
+    }
+
 }
