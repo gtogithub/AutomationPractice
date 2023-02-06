@@ -91,6 +91,15 @@ public class UltimateQATest extends PageSetup {
         WebElement forgotPasswordLink = driver.findElement(By.xpath("//div[@class='form__group form__remember-me']/a"));
         forgotPasswordLink.click();
 
+        WebElement emailField = driver.findElement(By.xpath("//input[@type='email']"));
+        emailField.sendKeys("tester@tester.pl");
+
+        WebElement submitButton = driver.findElement(By.xpath("//input[@type='submit']"));
+        submitButton.click();
+
+        WebElement passwordRecoveryText = driver.findElement(By.xpath("//article[@class='password-reset__sent']/h2"));
+        Assertions.assertEquals("Help is on the way!", passwordRecoveryText.getText());
+
     }
 
 }
